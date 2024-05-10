@@ -15,5 +15,3 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size=700, chunk_overlap=70)
 texts = text_splitter.split_documents(documents)
 
 vector_store = Chroma.from_documents(texts, embeddings, collection_metadata={"hnsw:space": "cosine"}, persist_directory="operatingsystem/embed")
-
-print("Vector DB Successfully Created!")
