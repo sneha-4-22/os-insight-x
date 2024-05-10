@@ -6,7 +6,7 @@ from langchain.document_loaders import PyPDFLoader
 from langchain.vectorstores import Chroma
 
 embed_model = SentenceTransformerEmbeddings(model_name="llmware/industry-bert-insurance-v0.1")
-load = DirectoryLoader('data/', glob="**/*.pdf", show_progress=True, loader_cls=PyPDFLoader)
+load1 = DirectoryLoader('data/', glob="**/*.pdf", show_progress=True, loader_cls=PyPDFLoader)
 doc= load1.load()
 splitText = RecursiveCharacterTextSplitter(chunk_size=700, chunk_overlap=70)
 texts = splitText.split_documents(doc)
