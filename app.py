@@ -55,7 +55,7 @@ def main():
 
     st.subheader("Answer")
     if generate_response_btn and text_query:
-        with st.spinner("Generating response..."):
+        with st.spinner("Generating response...(I am quite slow sorry!🤯)"):
             text_response = qa(text_query)
             if text_response:
                 st.write(text_response)
