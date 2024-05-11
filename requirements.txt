@@ -7,3 +7,5 @@ pypdf
 huggingface_hub
 python-dotenv
 Chroma
+sqlite>=3.35.0
+
