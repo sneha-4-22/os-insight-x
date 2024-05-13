@@ -1,6 +1,5 @@
 torch
 sentence_transformers
-vectorstores
 streamlit
 langchain 
 chromadb
