@@ -6,5 +6,5 @@ chromadb
 pypdf
 huggingface_hub
 python-dotenv
-Chroma
+
 

@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from langchain.llms import HuggingFaceHub
+from langchain_community.llms import HuggingFaceHub
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain_community.vectorstores import Chroma
@@ -10,8 +10,6 @@ import streamlit as st
 st.set_page_config(
     page_title="📚 Talk to Galvin's OS Textbook",
     page_icon="👻",
-    layout="wide",
-    initial_sidebar_state="expanded",
 )
 load_dotenv()
 
