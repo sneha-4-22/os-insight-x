@@ -5,10 +5,14 @@ from langchain.document_loaders import DirectoryLoader
 from langchain.document_loaders import PyPDFLoader
 from langchain.vectorstores import Chroma
 
-embed_model = SentenceTransformerEmbeddings(model_name="llmware/industry-bert-insurance-v0.1")
-load1 = DirectoryLoader('data/', glob="**/*.pdf", show_progress=True, loader_cls=PyPDFLoader)
-doc= load1.load()
-splitText = RecursiveCharacterTextSplitter(chunk_size=700, chunk_overlap=70)
-texts = splitText.split_documents(doc)
 
-vector_store = Chroma.from_documents(texts, embed_model, collection_metadata={"hnsw:space": "cosine"}, persist_directory="operatingsystem/embed")
+embeddings = SentenceTransformerEmbeddings(model_name="llmware/industry-bert-insurance-v0.1")
+
+loader = DirectoryLoader('data/', glob="**/*.pdf", show_progress=True, loader_cls=PyPDFLoader)
+documents = loader.load()
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=700, chunk_overlap=70)
+texts = text_splitter.split_documents(documents)
+
+vector_store = Chroma.from_documents(texts, embeddings, collection_metadata={"hnsw:space": "cosine"}, persist_directory="stores/insurance_cosine")
+
+print("Vector DB Successfully Created!")
