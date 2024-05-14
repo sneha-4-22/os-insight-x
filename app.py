@@ -3,13 +3,20 @@ from dotenv import load_dotenv
 from langchain.llms import HuggingFaceHub
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
-from langchain.vectorstores import Chroma
-from langchain.embeddings import SentenceTransformerEmbeddings
+from langchain_community.vectorstores import Chroma
+from langchain_community.embeddings import SentenceTransformerEmbeddings
 import streamlit as st 
-st.set_page_config(page_title="Extracting Insights from Galvin's OS Textbook")
-st.title("Talk to Galvin's OS Textbook 👻😁")
+
+st.set_page_config(
+    page_title="📚 Talk to Galvin's OS Textbook",
+    page_icon="👻",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 load_dotenv()
+
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.getenv("HUGGINGFACEHUB_API_TOKEN")
+
 prompt_template = """To provide the best response, consider the following context and question carefully:
 
 Context: {context}
@@ -49,25 +56,34 @@ qa = quesans()
 
 def main():
 
-    text_query = st.text_area("Type your Question", height=100)
+    st.title("📚 Talk to Galvin's OS Textbook ")
 
-    generate_response_btn = st.button("Submit")
+    st.markdown(
+        """
+        <style>
+        body {
+            background-color: #FFC0CB; 
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
-    st.subheader("Answer")
+    text_query = st.text_area("Type your question here...", height=100)
+
+    generate_response_btn = st.button("Get Answer")
+
+    st.subheader("🎉 Answer 🎉")
+
     if generate_response_btn and text_query:
-        with st.spinner("Generating response...(I am quite slow sorry!🤯)"):
+        with st.spinner("Generating response..."):
             text_response = qa(text_query)
             if text_response:
                 st.write(text_response)
                 st.success("Response generated!")
             else:
-                st.error("Oops Sorry! I've no idea what do you mean?.")
+                st.error("Oops! I have no idea what you mean.")
+            st.balloons() 
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
