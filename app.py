@@ -9,7 +9,7 @@ from langchain.document_loaders import DirectoryLoader, PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import streamlit as st 
 
-# Load environment variables
+
 load_dotenv()
 
 # Set Hugging Face Hub API token
@@ -33,18 +33,16 @@ embeddings = SentenceTransformerEmbeddings(model_name="llmware/industry-bert-ins
 loader = DirectoryLoader('data/', glob="**/*.pdf", show_progress=True, loader_cls=PyPDFLoader)
 documents = loader.load()
 
-# Split documents into texts
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=700, chunk_overlap=70)
 texts = text_splitter.split_documents(documents)
 
-# Create Chroma vector store
+
 vector_store = Chroma.from_documents(texts, embeddings, collection_metadata={"hnsw:space": "cosine"}, persist_directory="stores/insurance_cosine")
 
 # Initialize HuggingFace Hub
 repo = "llmware/bling-sheared-llama-1.3b-0.1"
 hfllm = HuggingFaceHub(repo_id=repo, model_kwargs={"temperature": 0.3, "max_length": 500})
 
-# Define function to get question-answer pairs
 def quesans():
     qa = RetrievalQA.from_chain_type(
         llm=hfllm,
