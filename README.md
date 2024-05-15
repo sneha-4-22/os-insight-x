@@ -1,4 +1,4 @@
-### This Streamlit web application allows users to interact with Galvin's Operating System (OS) textbook to extract insights and answers to questions. 
+## APP PREVIEW
 
 
 
