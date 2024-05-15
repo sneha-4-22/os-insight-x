@@ -1,6 +1,9 @@
 ### This Streamlit web application allows users to interact with Galvin's Operating System (OS) textbook to extract insights and answers to questions. 
 
-https://github.com/sneha-4-22/RAG-OS-qa/assets/112711068/d9250ad6-5c3e-4f46-b563-d6c4b4803ee0
+
+
+https://github.com/sneha-4-22/RAG-OS-qa/assets/112711068/04735392-d9e1-46ea-951b-17ab7a662f58
+
 
 
 ### It utilizes Hugging Face's Language Model (LLMs) 
