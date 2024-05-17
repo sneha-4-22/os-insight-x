@@ -1,6 +1,9 @@
+##   OS Insight X
+
+This application allows users to interact with Galvin's Operating System textbook by asking questions and receiving accurate, context-aware answers. The system leverages LangChain for document processing and LLMWare for intelligent responses.
+
+
 ## APP PREVIEW
-
-
 
 https://github.com/sneha-4-22/RAG-OS-qa/assets/112711068/04735392-d9e1-46ea-951b-17ab7a662f58
 
