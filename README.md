@@ -2,6 +2,12 @@
 
 This application allows users to interact with Galvin's Operating System textbook by asking questions and receiving accurate, context-aware answers. The system leverages LangChain for document processing and LLMWare for intelligent responses.
 
+## Features
+
+- Load and process PDF documents from Galvin's OS textbook.
+- Split documents into manageable chunks for efficient retrieval.
+- Use pre-trained LLMWare models to generate embeddings and provide answers.
+- Simple Streamlit interface for easy interaction.
 
 ## APP PREVIEW
 
